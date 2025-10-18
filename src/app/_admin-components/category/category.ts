@@ -41,8 +41,24 @@ this.categoryService.create(this.newCategory).subscribe({
   complete : () => {
     alertify.success("Category Created!")
 
-location.reload()
+    setTimeout(()=>{
+      location.reload();
+    },1000)
 
+
+
+  }
+})
+}
+
+
+delete(id){
+this.categoryService.delete(id).subscribe({
+  error: result => {console.error(result.error);
+  alertify.error("An Error Occured!")
+  },
+  complete:()=>{alertify.success("Category Deleted!")
+    this.getCategories();
   }
 })
 }

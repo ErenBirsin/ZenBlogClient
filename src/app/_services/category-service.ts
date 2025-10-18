@@ -24,4 +24,8 @@ constructor(private http: HttpClient) {
     return this.http.post<Result<CategoryDto>>(this.baseUrl,categoryDto);
   }
 
+delete(id: string){
+  return this.http.delete(this.baseUrl+id);
+}
+
 }

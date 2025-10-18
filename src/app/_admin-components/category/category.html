@@ -13,7 +13,7 @@
     <th>{{i+1}}</th>
     <td>{{item.categoryName}}</td>
     <td>
-      <button class="btn btn-outline-danger">Delete</button>
+      <button class="btn btn-outline-danger" (click)="delete(item.id)">Delete</button>
       <button class="btn btn-outline-info">Edit</button>
     </td>
   </tr>
