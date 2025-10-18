@@ -15,12 +15,21 @@ this.getCategories();
 }
 
 categories : CategoryDto[] ;
+newCategory: CategoryDto = new CategoryDto();
 
 getCategories(){
   this.categoryService.getCategories().subscribe({
     next: result=> this.categories = result.data,
     error: result=> console.log(result)
   })
+}
+
+
+createCategory(){
+this.categoryService.create(this.newCategory).subscribe({
+  next: result=>this.categories.push(result.data),
+  error: result => console.log(result.errors)
+})
 }
 
 }

@@ -1,5 +1,50 @@
 <h1>Categories</h1>
 
-<ul *ngFor="let item of categories">
-  <li>{{item.categoryName}}</li>
-</ul>
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Category Name</th>
+    <th>Options</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of categories; let i =index;">
+    <th>{{i+1}}</th>
+    <td>{{item.categoryName}}</td>
+    <td>
+      <button class="btn btn-outline-danger">Delete</button>
+      <button class="btn btn-outline-info">Edit</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createModel">New Category</button>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="createModel" tabindex="-1" aria-labelledby="createModelLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+        <form #createForm ="ngForm" (ngSubmit)="createCategory()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="createModalLabel">Create New Category</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label>Category Name</label>
+            <input type="text" class="form-control" name="categoryName" [(ngModel)]="newCategory.categoryName" required="">
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" >Close</button>
+        <button type="button" type="submit" class="btn btn-primary" [disabled]="createForm.invalid" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+     </form>
+  </div>
+</div>
