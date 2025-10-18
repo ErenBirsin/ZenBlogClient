@@ -27,7 +27,7 @@
 <!-- Modal -->
 <div class="modal fade" id="createModel" tabindex="-1" aria-labelledby="createModelLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-        <form #createForm ="ngForm" (ngSubmit)="createCategory()">
+        <form #createForm ="ngForm" (ngSubmit)="createCategory(); createForm.resetForm()">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="createModalLabel">Create New Category</h1>
@@ -37,12 +37,15 @@
           <div class="form-group">
             <label>Category Name</label>
             <input type="text" class="form-control" name="categoryName" [(ngModel)]="newCategory.categoryName" required="">
+             <div *ngIf="errors[0]?.propertyName==='CategoryName'">
+          <span class="text-danger" *ngFor="let error of errors">{{error.errorMessage}}</span>
+            </div>
           </div>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" >Close</button>
-        <button type="button" type="submit" class="btn btn-primary" [disabled]="createForm.invalid" data-bs-dismiss="modal">Save changes</button>
+        <button type="button" type="submit" class="btn btn-primary" [disabled]="createForm.invalid" >Save changes</button>
       </div>
     </div>
      </form>

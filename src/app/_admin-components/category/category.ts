@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../../_services/category-service';
 import { CategoryDto } from '../../_models/category';
+declare const alertify : any;
 
 @Component({
   selector: 'admin-category',
@@ -16,6 +17,7 @@ this.getCategories();
 
 categories : CategoryDto[] ;
 newCategory: CategoryDto = new CategoryDto();
+errors: any=[];
 
 getCategories(){
   this.categoryService.getCategories().subscribe({
@@ -28,7 +30,20 @@ getCategories(){
 createCategory(){
 this.categoryService.create(this.newCategory).subscribe({
   next: result=>this.categories.push(result.data),
-  error: result => console.log(result.errors)
+  error: result => {
+    alertify.error("An Error Occured!");
+
+    if(result.status===400){
+      console.log(result.error)
+      this.errors= result.error.errors
+    }
+  },
+  complete : () => {
+    alertify.success("Category Created!")
+
+location.reload()
+
+  }
 })
 }
 
