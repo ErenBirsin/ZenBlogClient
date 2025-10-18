@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../../_services/category-service';
 import { CategoryDto } from '../../_models/category';
+import { Sweetalert } from '../../_services/sweetalert';
 declare const alertify : any;
 
 @Component({
@@ -11,7 +12,9 @@ declare const alertify : any;
 })
 export class Category {
 
-constructor(private categoryService : CategoryService){
+constructor(private categoryService : CategoryService,
+            private swal : Sweetalert
+){
 this.getCategories();
 }
 
@@ -52,8 +55,12 @@ this.categoryService.create(this.newCategory).subscribe({
 }
 
 
-delete(id){
-this.categoryService.delete(id).subscribe({
+async delete(id){
+
+ const isConfirmed = await this.swal.areYouSure();
+
+ if(isConfirmed){
+  this.categoryService.delete(id).subscribe({
   error: result => {console.error(result.error);
   alertify.error("An Error Occured!")
   },
@@ -61,6 +68,17 @@ this.categoryService.delete(id).subscribe({
     this.getCategories();
   }
 })
-}
+
+  }
+  else{
+    console.log("Delete Reverted")
+ }
+ }
+
+
+
+
 
 }
+
+
