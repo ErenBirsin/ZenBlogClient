@@ -20,6 +20,7 @@ this.getCategories();
 
 categories : CategoryDto[] ;
 newCategory: CategoryDto = new CategoryDto();
+editCategory:any={};
 errors: any=[];
 
 getCategories(){
@@ -75,7 +76,27 @@ async delete(id){
  }
  }
 
+update(){
+this.categoryService.update(this.editCategory).subscribe({
+  error:result=>{
+    alertify.error("An Error Occured!");
 
+    if(result.status===400){
+      console.log(result.error)
+      this.errors=result.error.errors
+    }
+  },
+  complete: () =>
+    {alertify.success("Category Updated!")
+  setTimeout(()=>{
+      location.reload();
+    },1000)}
+})
+};
+
+onSelected(model:CategoryDto){
+  this.editCategory = model;
+}
 
 
 

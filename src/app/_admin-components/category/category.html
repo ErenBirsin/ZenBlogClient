@@ -14,18 +14,18 @@
     <td>{{item.categoryName}}</td>
     <td>
       <button class="btn btn-outline-danger" (click)="delete(item.id)">Delete</button>
-      <button class="btn btn-outline-info">Edit</button>
+      <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#editModal" (click)="onSelected(item)">Edit</button>
     </td>
   </tr>
   </tbody>
 </table>
 
-<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createModel">New Category</button>
+<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createModal">New Category</button>
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="createModel" tabindex="-1" aria-labelledby="createModelLabel" aria-hidden="true">
+<!-- Create  Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
         <form #createForm ="ngForm" (ngSubmit)="createCategory(); createForm.resetForm()">
     <div class="modal-content">
@@ -46,6 +46,35 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" >Close</button>
         <button type="button" type="submit" class="btn btn-primary" [disabled]="createForm.invalid" >Save changes</button>
+      </div>
+    </div>
+     </form>
+  </div>
+</div>
+
+
+<!-- Edit  Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+        <form #editForm ="ngForm" (ngSubmit)="update()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editModalLabel">Update Category</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label>Category Name</label>
+            <input type="text" class="form-control" name="categoryName" [(ngModel)]="editCategory.categoryName" required="">
+             <div *ngIf="errors[0]?.propertyName==='CategoryName'">
+          <span class="text-danger" *ngFor="let error of errors">{{error.errorMessage}}</span>
+            </div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" >Close</button>
+        <button type="button" type="submit" class="btn btn-primary" [disabled]="editForm.invalid || !editForm.dirty" >Update changes</button>
       </div>
     </div>
      </form>

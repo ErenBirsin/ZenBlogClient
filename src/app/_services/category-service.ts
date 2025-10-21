@@ -28,4 +28,9 @@ delete(id: string){
   return this.http.delete(this.baseUrl+id);
 }
 
+update(model:CategoryDto){
+  return this.http.put(this.baseUrl,model);
+}
+
+
 }
