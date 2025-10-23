@@ -1,5 +1,4 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { Blog } from './blog';
 declare const alertify : any;
 
 @Component({

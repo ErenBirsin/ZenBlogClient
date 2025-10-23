@@ -1,3 +1,4 @@
+import { CategoryDto } from "./category";
 
 export class BlogDto{
   id;
@@ -6,7 +7,10 @@ export class BlogDto{
   blogImage;
   description;
   categoryId;
+  category:CategoryDto;
   userId;
+  createdAt;
+  updatedAt;
 
 
 }

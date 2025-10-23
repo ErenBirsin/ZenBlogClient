@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BlogDto } from '../_models/blog';
 import { Result } from '../_models/result';
-import { Blog } from '../blog';
 
 @Injectable({
   providedIn: 'root'
