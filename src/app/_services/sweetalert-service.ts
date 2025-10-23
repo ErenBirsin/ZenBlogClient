@@ -5,7 +5,7 @@ import Swal, { SweetAlertResult } from 'sweetalert2'
 @Injectable({
   providedIn: 'root'
 })
-export class Sweetalert {
+export class SweetalertService {
 
 areYouSure() : Promise<boolean>{
  return Swal.fire({

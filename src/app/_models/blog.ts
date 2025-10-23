@@ -1,5 +1,5 @@
 
-export class Blog{
+export class BlogDto{
   id;
   title;
   coverImage;
