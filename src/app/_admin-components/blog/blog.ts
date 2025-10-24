@@ -23,6 +23,7 @@ export class Blog implements OnInit{
   blogs:BlogDto[];
   categories:CategoryDto[];
   newBlog:BlogDto = new BlogDto();
+  editBlog:any = {};
   errors:any=[];
 
   ngOnInit(): void {
@@ -38,10 +39,21 @@ export class Blog implements OnInit{
   }
 
   create(){
+    this.errors={};
     this.blogService.create(this.newBlog).subscribe({
       next: result => this.blogs.push(result.data),
-      error: Result=> alertify.error("An Error Occured!"),
-      complete: ()=> alertify.success("Blog Created!")
+      error: result=> {
+        alertify.error("An Error Occured!");
+        console.log(result.error.errors);
+        this.errors=result.error.errors;
+
+      },
+      complete: ()=> {alertify.success("Blog Created!");
+         setTimeout(()=>{
+      location.reload();
+    },1000);
+    this.errors={};
+      }
     })
   }
 
@@ -50,5 +62,47 @@ this.categoryService.getCategories().subscribe({
   next: result=> this.categories=result.data
 })
 }
+
+onSelected(blog){
+  this.errors={};
+this.editBlog=blog;
+}
+
+update(){
+  this.blogService.update(this.editBlog).subscribe({
+    error: result=>{alertify.error("An Error Occured!")
+      this.errors = result.error.errors
+    },
+    complete: () => {alertify.success("Blog Updated!")
+       setTimeout(()=>{
+      location.reload();
+    },1000);
+    this.errors = {};
+    }
+  })
+}
+
+
+async delete(id){
+
+  const isConfirmed = await this.swal.areYouSure();
+
+  if(isConfirmed){
+
+  this.blogService.delete(id).subscribe({
+  error: result => alertify.error("An Error Occured!"),
+  complete: ()=>{alertify.success("Blog Deleted!");
+  this.getBlogs()
+  }
+})
+  }
+  else{
+    console.log("Delete Reverted!")
+
+  }
+
+
+}
+
 
 }
