@@ -14,11 +14,15 @@ constructor(private authService:AuthService){}
 
 loginDto:LoginDto = new LoginDto()
 token:any;
+decodedToken: any = {};
 
 login(){
 this.authService.login(this.loginDto).subscribe({
   next:result=>{this.token=result.data.token
+    localStorage.setItem("token",result.data.token);
     alertify.success("Login Succesfull!")
+    this.decodeToken();
+    console.log(this.decodedToken);
   },
   error: result => {
     console.log(result.error.errors);
@@ -26,4 +30,10 @@ this.authService.login(this.loginDto).subscribe({
   }
 })
 }
+
+decodeToken(){
+   let decodedToken = this.authService.decodeToken();
+   this.decodedToken = decodedToken;
+}
+
 }
