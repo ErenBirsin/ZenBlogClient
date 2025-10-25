@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient
+  constructor(private http: HttpClient,
+              private router:Router
 
   ){ }
 
@@ -16,6 +18,11 @@ export class AuthService {
 
     login(model){
       return this.http.post<any>(this.baseUrl,model);
+    }
+
+    logout(){
+      localStorage.removeItem("token");
+      this.router.navigate([""]);
     }
 
     decodeToken(){

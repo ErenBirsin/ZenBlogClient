@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../_services/auth-service';
 import { LoginDto } from '../../_models/loginDto';
+import { Router } from '@angular/router';
 declare const alertify:any;
 
 @Component({
@@ -10,7 +11,9 @@ declare const alertify:any;
   styleUrl: './login.css'
 })
 export class Login {
-constructor(private authService:AuthService){}
+constructor(private authService:AuthService,
+            private router:Router
+){}
 
 loginDto:LoginDto = new LoginDto()
 token:any;
@@ -20,9 +23,10 @@ login(){
 this.authService.login(this.loginDto).subscribe({
   next:result=>{this.token=result.data.token
     localStorage.setItem("token",result.data.token);
-    alertify.success("Login Succesfull!")
-    this.decodeToken();
-    console.log(this.decodedToken);
+
+    alertify.success("Login Succesfull!");
+    this.router.navigate(["/admin"])
+
   },
   error: result => {
     console.log(result.error.errors);

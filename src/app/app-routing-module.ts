@@ -6,6 +6,7 @@ import { AdminLayout } from './_layouts/admin-layout/admin-layout';
 import { Category } from './_admin-components/category/category';
 import { Blog } from './_admin-components/blog/blog';
 import { Login } from './_main-components/login/login';
+import { AuthGuard } from './_guards/auth-guard';
 
 const routes: Routes = [
 
@@ -22,9 +23,14 @@ const routes: Routes = [
 
 {path : 'admin',
   component:AdminLayout,
+  canActivate:[AuthGuard],
   children:[
-    {path:'category',component:Category},
-    {path:'blog',component:Blog}
+    {path:'category',
+      component:Category,
+    canActivate:[AuthGuard]},
+    {path:'blog'
+      ,component:Blog,
+    canActivate:[AuthGuard]}
   ]
 }
 
