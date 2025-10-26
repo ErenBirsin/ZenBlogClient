@@ -19,6 +19,10 @@ getAll(){
   return this.http.get<Result<BlogDto[]>>(this.baseUrl);
 }
 
+getLatest5Blogs(){
+  return this.http.get<Result<BlogDto[]>>(this.baseUrl+"latest5blogs");
+}
+
 create(model:BlogDto){
   return this.http.post<Result<BlogDto>>(this.baseUrl,model);
 }
