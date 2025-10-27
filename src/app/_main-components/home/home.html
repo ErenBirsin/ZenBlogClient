@@ -7,7 +7,7 @@
            @for (item of latestBlogs; track $index) {
             <div class="swiper-slide" style="background-image: url('{{item.coverImage}}');">
               <div class="content">
-                <h2><a href="single-post.html">{{item.title}}</a></h2>
+                <h2><a [routerLink]="['/blogdetails/',item.id]">{{item.title}}</a></h2>
                 <p>{{item.description | slice:0:150}}</p>
               </div>
             </div>
