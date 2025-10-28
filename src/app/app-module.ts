@@ -14,6 +14,8 @@ import { Login } from './_main-components/login/login';
 import { Blogdetails } from './_main-components/blogdetails/blogdetails';
 import { CommentForm } from './_main-components/comment-form/comment-form';
 import { ContactMain } from './_main-components/contact-main/contact-main';
+import { Comment } from './_admin-components/comment/comment';
+import { ContactInfo } from './_admin-components/contact-info/contact-info';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ContactMain } from './_main-components/contact-main/contact-main';
     Login,
     Blogdetails,
     CommentForm,
-    ContactMain
+    ContactMain,
+    Comment,
+    ContactInfo
   ],
   imports: [
     BrowserModule,

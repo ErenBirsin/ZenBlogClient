@@ -1,3 +1,4 @@
+import { AuthService } from './../../_services/auth-service';
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../../_services/blog-service';
 import { SweetalertService } from '../../_services/sweetalert-service';
@@ -17,7 +18,8 @@ export class Blog implements OnInit{
 
   constructor(private blogService:BlogService,
               private swal:SweetalertService,
-              private categoryService:CategoryService
+              private categoryService:CategoryService,
+              private authService:AuthService
   ){}
 
   blogs:BlogDto[];
@@ -40,6 +42,7 @@ export class Blog implements OnInit{
 
   create(){
     this.errors={};
+    this.newBlog.userId = this.authService.getUserId();
     this.blogService.create(this.newBlog).subscribe({
       next: result => this.blogs.push(result.data),
       error: result=> {
@@ -69,6 +72,7 @@ this.editBlog=blog;
 }
 
 update(){
+  this.editBlog.userId = this.authService.getUserId();
   this.blogService.update(this.editBlog).subscribe({
     error: result=>{alertify.error("An Error Occured!")
       this.errors = result.error.errors
