@@ -1,7 +1,10 @@
 import { UserDto } from "./userDto";
 
 export class CommentDto{
-  user : UserDto
+  firstName;
+  lastName;
+  email;
+  blogId;
   body;
   commentDate;
 }

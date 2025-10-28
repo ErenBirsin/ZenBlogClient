@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { Blog } from './_admin-components/blog/blog';
 import { Login } from './_main-components/login/login';
 import { Blogdetails } from './_main-components/blogdetails/blogdetails';
+import { CommentForm } from './_main-components/comment-form/comment-form';
+import { ContactMain } from './_main-components/contact-main/contact-main';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { Blogdetails } from './_main-components/blogdetails/blogdetails';
     Category,
     Blog,
     Login,
-    Blogdetails
+    Blogdetails,
+    CommentForm,
+    ContactMain
   ],
   imports: [
     BrowserModule,
