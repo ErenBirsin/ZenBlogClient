@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Result } from '../_models/result';
 import { CategoryDto } from '../_models/category';
@@ -15,6 +15,12 @@ constructor(private http: HttpClient) {
 
 
 }
+
+// httpOptions ={
+//   headers: new HttpHeaders({
+//     'Authorization': 'Bearer ' + localStorage.getItem("token")
+//   })
+// }
 
  getCategories(){
    return this.http.get<Result<CategoryDto[]>>(this.baseUrl);
