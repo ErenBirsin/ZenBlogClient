@@ -18,6 +18,7 @@ import { Comment } from './_admin-components/comment/comment';
 import { ContactInfo } from './_admin-components/contact-info/contact-info';
 import { AuthGuard } from './_guards/auth-guard';
 import { TokenInterceptor } from './_interceptors/token-interceptor';
+import { Message } from './_admin-components/message/message';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TokenInterceptor } from './_interceptors/token-interceptor';
     CommentForm,
     ContactMain,
     Comment,
-    ContactInfo
+    ContactInfo,
+    Message
   ],
   imports: [
     BrowserModule,

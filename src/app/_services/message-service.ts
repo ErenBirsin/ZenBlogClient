@@ -18,12 +18,20 @@ getAll(){
   return this.http.get<Result<MessageDto[]>>(this.baseUrl);
 }
 
+getReadMessages(){
+  return this.http.get<Result<MessageDto[]>>(this.baseUrl+"read");
+}
+
+getUnReadMessages(){
+  return this.http.get<Result<MessageDto[]>>(this.baseUrl+"unread");
+}
+
 create(model:MessageDto){
   return this.http.post<Result<MessageDto>>(this.baseUrl,model);
 }
 
-update(model:MessageDto){
-  return this.http.put(this.baseUrl,model);
+  update(model:MessageDto){
+  return this.http.put(this.baseUrl, model);
 }
 
 delete(id:string){

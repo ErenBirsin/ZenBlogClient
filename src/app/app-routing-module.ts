@@ -11,6 +11,7 @@ import { Blogdetails } from './_main-components/blogdetails/blogdetails';
 import { ContactMain } from './_main-components/contact-main/contact-main';
 import { Comment } from './_admin-components/comment/comment';
 import { ContactInfo } from './_admin-components/contact-info/contact-info';
+import { Message } from './_admin-components/message/message';
 
 const routes: Routes = [
 
@@ -42,6 +43,9 @@ const routes: Routes = [
     canActivate:[AuthGuard]},
     {path:'contactinfo'
       ,component:ContactInfo,
+    canActivate:[AuthGuard]},
+    {path:'message'
+      ,component:Message,
     canActivate:[AuthGuard]}
   ]
 }

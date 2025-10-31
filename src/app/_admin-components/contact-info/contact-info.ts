@@ -56,9 +56,9 @@ export class ContactInfo implements OnInit{
   }
 
 
-onSelected(blog){
+onSelected(model){
   this.errors={};
-this.editContactInfo=blog;
+this.editContactInfo=model;
 }
 
 update(){
