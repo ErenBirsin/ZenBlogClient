@@ -19,6 +19,7 @@ import { ContactInfo } from './_admin-components/contact-info/contact-info';
 import { AuthGuard } from './_guards/auth-guard';
 import { TokenInterceptor } from './_interceptors/token-interceptor';
 import { Message } from './_admin-components/message/message';
+import { Socials } from './_admin-components/social/social';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { Message } from './_admin-components/message/message';
     ContactMain,
     Comment,
     ContactInfo,
-    Message
+    Message,
+    Socials
   ],
   imports: [
     BrowserModule,

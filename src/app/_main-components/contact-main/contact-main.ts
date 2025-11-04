@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ContactInfoService } from '../../_services/contact-info-service';
+import { ContactInfoDto } from '../../_models/contactInfoDto';
 
 @Component({
   selector: 'app-contact-main',
@@ -7,5 +9,16 @@ import { Component } from '@angular/core';
   styleUrl: './contact-main.css'
 })
 export class ContactMain {
+contactInfos: ContactInfoDto[];
+constructor(private contactInfoService: ContactInfoService){
+  this.getContactInfos();
+}
+
+getContactInfos(){
+  this.contactInfoService.getAll().subscribe({
+    next: result =>this.contactInfos = result.data,
+    error: result =>console.log(result.error)
+  })
+}
 
 }
