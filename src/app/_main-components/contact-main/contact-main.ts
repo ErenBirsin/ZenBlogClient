@@ -9,7 +9,8 @@ import { ContactInfoDto } from '../../_models/contactInfoDto';
   styleUrl: './contact-main.css'
 })
 export class ContactMain {
-contactInfos: ContactInfoDto[];
+contactInfos: ContactInfoDto[]
+
 constructor(private contactInfoService: ContactInfoService){
   this.getContactInfos();
 }
@@ -20,5 +21,8 @@ getContactInfos(){
     error: result =>console.log(result.error)
   })
 }
+
+
+
 
 }

@@ -47,7 +47,7 @@
               </a>
               <div>
                 <div class="post-meta"><span class="date">{{item.categoryName}}</span> <span class="mx-1">•</span> <span>{{blog.createdAt | date}}</span></div>
-                <h3><a href="blog-details.html">{{blog.title}}</a></h3>
+                <h3><a [routerLink]="['/blogdetails/',item.id]">{{blog.title}}</a></h3>
                 <p>{{blog.description | slice:0:200}}</p>
                 <div class="d-flex align-items-center author">
                   <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
@@ -63,7 +63,7 @@
               <div class="col-lg-4">
                 @for (blog of item.blogs; track $index) {
                 <div class="post-list border-bottom">
-                  <a href="blog-details.html"><img src="{{blog.coverImage}}" alt="" class="img-fluid"></a>
+                  <a [routerLink]="['/blogdetails/',item.id]"><img src="{{blog.coverImage}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">{{item.categoryName}}</span> <span class="mx-1">•</span> <span>{{blog.createdAt | date}}</span></div>
                   <h2 class="mb-2"><a href="blog-details.html">{{blog.title}}</a></h2>
                   <span class="author mb-3 d-block">{{blog.user.firstName}} {{blog.user.lastName}}</span>
@@ -73,13 +73,17 @@
 
               </div>
               <div class="col-lg-8">
+                @for(blog of item.blogs;track $index){
+                  @if($index === 0){
                 <div class="post-list">
-                  <a href="blog-details.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="blog-details.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                  <a [routerLink]="['/blogdetails/',item.id]"><img src="{{blog.coverImage}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">{{item.categoryName}}</span> <span class="mx-1">•</span> <span>{{blog.createdAt | date}}</span></div>
+                  <h2 class="mb-2"><a [routerLink]="['/blogdetails/',item.id]">{{blog.title}}</a></h2>
+                  <span class="author mb-3 d-block">{{blog.user.firstName}} {{blog.user.lastName}}</span>
+                  <p class="mb-4 d-block">{{blog.description | slice:0:150}}</p>
                 </div>
+                }
+              }
               </div>
             </div>
           </div>
