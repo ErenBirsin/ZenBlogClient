@@ -13,6 +13,8 @@ import { Comment } from './_admin-components/comment/comment';
 import { ContactInfo } from './_admin-components/contact-info/contact-info';
 import { Message } from './_admin-components/message/message';
 import { Socials } from './_admin-components/social/social';
+import { About } from './_main-components/about/about';
+import { AboutAdmin } from './_admin-components/about/about';
 
 const routes: Routes = [
 
@@ -22,7 +24,8 @@ const routes: Routes = [
     {path:'',component:Home},
     {path:'login',component:Login},
     {path:'blogdetails/:id',component:Blogdetails},
-    {path: 'contact',component:ContactMain}
+    {path: 'contact',component:ContactMain},
+    {path: 'about',component:About}
   ]
 },
 
@@ -50,6 +53,9 @@ const routes: Routes = [
     canActivate:[AuthGuard]},
     {path:'social'
       ,component:Socials,
+    canActivate:[AuthGuard]},
+    {path:'about'
+      ,component:AboutAdmin,
     canActivate:[AuthGuard]}
   ]
 }
