@@ -9,3 +9,40 @@
   font-weight: 400;
 }
 
+.about .content ul li {
+  font-style: italic;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.about .content ul li span {
+  font-style: italic;
+}
+
+/* About Images - Larger Size */
+.about-images {
+  margin-bottom: 3rem;
+}
+
+.about-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-images .col-lg-12 img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.about-images .col-lg-6 img {
+  max-height: 250px;
+  object-fit: cover;
+}
+
+/* Content Wrapper - Independent from images */
+.about .content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+

@@ -90,10 +90,10 @@ update(){
 
   this.messageService.update(this.editMessage).subscribe({
 
-    error: result=>{alertify.error("An Error Occured!")
+    error: result=>{alertify.error("An Error Occured!");
       this.errors = result.error.errors
     },
-    complete: () => {alertify.success("Message Updated!")
+    complete: () => {alertify.success("Message Updated!");
        setTimeout(()=>{
       location.reload();
     },1000);
@@ -114,7 +114,8 @@ async delete(id){
   this.messageService.delete(id).subscribe({
   error: result => alertify.error("An Error Occured!"),
   complete: ()=>{alertify.success("Message Deleted!");
-  this.getmessages()
+  this.getReadMessages();
+  this.getUnReadMessages();
   }
 })
   }

@@ -134,3 +134,23 @@ main {
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
+
+/* Admin Sidebar Navigation Styles */
+.text-bg-dark .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: all 0.2s ease;
+}
+
+.text-bg-dark .nav-link:hover {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.text-bg-dark .nav-link.active {
+  background-color: #0d6efd !important;
+  color: #fff !important;
+}
+
+.text-bg-dark .nav-link.active:hover {
+  background-color: #0b5ed7 !important;
+}

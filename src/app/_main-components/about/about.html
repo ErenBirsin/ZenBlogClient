@@ -17,56 +17,58 @@
   <div class="container">
 
     @if (about) {
-    <div class="row gy-4">
-
-      <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-        @if (about.subTitle) {
-        <p class="who-we-are">{{about.subTitle}}</p>
-        }
-        @if (about.title) {
-        <h3>{{about.title}}</h3>
-        }
-        @if (about.description) {
-        <p class="about-description">
-          {{about.description}}
-        </p>
-        }
-        @if (contentList.length > 0) {
-        <ul>
-          @for (item of contentList; track $index) {
-          <li>
-            <i class="bi bi-check-circle"></i> <span>{{item}}</span>
-          </li>
-          }
-        </ul>
-        }
-      </div>
+    <div class="row gy-5">
 
       @if (images.length > 0) {
-      <div class="col-lg-6 about-images" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-12 about-images" data-aos="fade-up" data-aos-delay="50">
         <div class="row gy-4">
           @if (images[0]) {
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <img [src]="images[0]" class="img-fluid" alt="">
           </div>
           }
+          @if (images.length > 1) {
           <div class="col-lg-6">
-            <div class="row gy-4">
-              @if (images[1]) {
-              <div class="col-lg-12">
-                <img [src]="images[1]" class="img-fluid" alt="">
-              </div>
-              }
-              @if (images[2]) {
-              <div class="col-lg-12">
-                <img [src]="images[2]" class="img-fluid" alt="">
-              </div>
-              }
-            </div>
+            @if (images[1]) {
+            <img [src]="images[1]" class="img-fluid" alt="">
+            }
           </div>
+          }
+          @if (images.length > 2) {
+          <div class="col-lg-6">
+            @if (images[2]) {
+            <img [src]="images[2]" class="img-fluid" alt="">
+            }
+          </div>
+          }
         </div>
       </div>
       }
+
+      <div class="col-12 content" data-aos="fade-up" data-aos-delay="100">
+        <div class="content-wrapper">
+          @if (about.subTitle) {
+          <p class="who-we-are">{{about.subTitle}}</p>
+          }
+          @if (about.title) {
+          <h3>{{about.title}}</h3>
+          }
+          @if (about.description) {
+          <p class="about-description">
+            {{about.description}}
+          </p>
+          }
+          @if (contentList.length > 0) {
+          <ul>
+            @for (item of contentList; track $index) {
+            <li>
+              <i class="bi bi-check-circle"></i> <span>{{item}}</span>
+            </li>
+            }
+          </ul>
+          }
+        </div>
+      </div>
 
     </div>
     }
