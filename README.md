@@ -1,59 +1,78 @@
-# ZenBLogClient
+# 📝 Zen Blog Client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
+Zen Blog, modern ve kullanıcı dostu bir blog platformu için geliştirilmiş Angular tabanlı frontend uygulamasıdır. Admin paneli ve kullanıcı arayüzü ile tam özellikli bir blog yönetim sistemi sunar.
 
-## Development server
+## 🎯 Proje Özellikleri
 
-To start a local development server, run:
+### Kullanıcı Arayüzü
+- **Ana Sayfa**: Son blog yazıları ve kategorilere göre düzenlenmiş içerikler
+- **Blog Detay Sayfası**: Yazıların detaylı görüntülenmesi ve yorum sistemi
+- **Kategori Görünümü**: Kategorilere göre blog filtreleme
+- **Hakkımızda Sayfası**: Şirket ve ekip bilgileri
+- **İletişim Sayfası**: Kullanıcılardan mesaj alma formu
+- **Login Sistemi**: JWT token tabanlı kimlik doğrulama
 
-```bash
-ng serve
+### Admin Paneli
+- **Blog Yönetimi**: Blog yazılarını ekleme, düzenleme ve silme
+- **Kategori Yönetimi**: Kategorileri oluşturma ve düzenleme
+- **Yorum Yönetimi**: Blog yorumlarını görüntüleme ve yönetme
+- **Mesaj Yönetimi**: İletişim formundan gelen mesajları görüntüleme
+- **Sosyal Medya Yönetimi**: Sosyal medya linklerini düzenleme
+- **İletişim Bilgileri Yönetimi**: İletişim bilgilerini güncelleme
+- **Hakkımızda Yönetimi**: Hakkımızda içeriğini düzenleme
+
+## 🛠️ Teknolojiler
+
+- **Angular**
+- **TypeScript**
+- **Bootstrap**
+- **JWT Authentication** (@auth0/angular-jwt)
+- **RxJS**
+- **Swiper** (Slider/Carousel)
+- **AOS** (Animasyon kütüphanesi)
+- **SweetAlert2** (Güzel bildirimler)
+- **AlertifyJS**
+- **Font Awesome**
+
+## 📁 Proje Yapısı
+
+```
+src/
+├── app/
+│   ├── _admin-components/      # Admin panel bileşenleri
+│   │   ├── blog/
+│   │   ├── category/
+│   │   ├── comment/
+│   │   ├── message/
+│   │   ├── contact-info/
+│   │   ├── social/
+│   │   └── about/
+│   ├── _main-components/        # Kullanıcı arayüzü bileşenleri
+│   │   ├── home/
+│   │   ├── blogdetails/
+│   │   ├── login/
+│   │   ├── contact-main/
+│   │   └── about/
+│   ├── _layouts/                # Layout bileşenleri
+│   │   ├── admin-layout/
+│   │   └── main-layout/
+│   ├── _services/               # API servisleri
+│   ├── _models/                 # TypeScript modelleri
+│   ├── _guards/                 # Route guard'ları
+│   └── _interceptors/           # HTTP interceptor'ları
+├── assets/                      # Statik dosyalar (resimler, CSS, JS)
+└── main.ts                      # Uygulama giriş noktası
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🔐 Güvenlik
 
-## Code scaffolding
+- JWT token tabanlı kimlik doğrulama
+- Route guard'lar ile admin paneli koruması
+- HTTP interceptor ile token yönetimi
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🌐 API Entegrasyonu
 
-```bash
-ng generate component component-name
-```
+Backend API ile iletişim için servisler `src/app/_services/` klasöründe bulunur. Tüm API çağrıları bu servisler üzerinden yapılır. Backend tarafı .NET ile geliştirilmiştir.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📸 Ekran Görüntüleri
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
