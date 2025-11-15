@@ -76,3 +76,16 @@ Backend API ile iletişim için servisler `src/app/_services/` klasöründe bulu
 
 ## 📸 Ekran Görüntüleri
 
+
+<img width="2826" height="1576" alt="Anasayfa - 2" src="https://github.com/user-attachments/assets/a29cfbe2-6414-4e42-a9a8-9ced5ef0e851" />
+<img width="2846" height="1568" alt="Anasayfa - 1 " src="https://github.com/user-attachments/assets/f931522e-ac73-43d9-b7b1-967218b4426c" />
+<img width="2836" height="1580" alt="About -3 " src="https://github.com/user-attachments/assets/71d21e25-c917-479c-8d72-ab37f59cce6f" />
+<img width="2850" height="1584" alt="Contact - 4 " src="https://github.com/user-attachments/assets/78ba2610-bd2c-4ee6-96de-b6cc18ba4538" />
+<img width="2846" height="1574" alt="Login - 4" src="https://github.com/user-attachments/assets/9fa468b0-8696-48d3-b4d5-e06039637df3" />
+<img width="2870" height="1578" alt="Admin Blogs - 2 " src="https://github.com/user-attachments/assets/99410c28-0722-4d6b-87f5-361aa6937cdc" />
+<img width="2880" height="912" alt="Admin Category - 1" src="https://github.com/user-attachments/assets/c4b545ce-2a60-488a-8f7c-afb5656e775d" />
+<img width="2880" height="1018" alt="Admin Comments - 3" src="https://github.com/user-attachments/assets/ddd94c67-21f4-47f8-85a9-c846c1eeaf79" />
+<img width="2878" height="892" alt="Admin Social Networks - 4 " src="https://github.com/user-attachments/assets/c860be0c-c48c-4322-bcf6-7326eaa5b050" />
+<img width="2874" height="1584" alt="Admin Messages" src="https://github.com/user-attachments/assets/461e24b1-f40f-4efe-b1f6-67adc5259522" />
+<img width="2880" height="834" alt="Admin About - 5" src="https://github.com/user-attachments/assets/b9ebd339-b9ad-4909-9f0f-7ad1322cec68" />
+
